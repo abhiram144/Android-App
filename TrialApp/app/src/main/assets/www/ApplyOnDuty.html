@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Apply On Duty</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-clockpicker.min.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link href="css/themejquery-ui.css" rel="stylesheet" />
+    <script src="js/bootstrap-clockpicker.min.js"></script>
+    <script src="js/ListOfOndutyTypes.js"></script>
+    <script>
+        $(document).ready(function () {
+            PopulateDropDownList();
+
+            $(".date-picker").datepicker();
+
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+
+            });
+        });
+        
+    </script>
+    <script type="text/javascript">
+        function PopulateDropDownList() {
+            var typeList = GetOndutyTypes();
+            var dropDownListData = "";
+            for (var i in typeList) {
+                dropDownListData += "<option value='" + typeList[i] + "'>" + typeList[i] + "</option>"
+                $("#dropDownList").html(dropDownListData);
+            }
+        }
+        function test() {
+            var typeList = GetOndutyTypes();
+            var dropDownListData = "";
+            for (var i in typeList) {
+                dropDownListData += "<option value='" + typeList[i] + "'>" + typeList[i] + "</option>"
+                $("#dropDownList").html(dropDownListData);
+            }
+        }
+        function DatePicker() {
+            alert('in fun');
+            $(document).ready(function () {
+                $("#StartDate").click();
+            });
+
+        }
+    </script>
+</head>
+<body>
+
+    <!--On duty Type-->
+    <div class="form-group">
+        <label for="OnDutyTypeLabel">On Duty Type :</label>
+        <select class="form-control" id="dropDownList"></select><br />
+
+        <!--<div class="input-group" id='datepickerstart'>
+            <input id="date-picker-2" type="text" class="date-picker form-control" />
+            <label for="date-picker-2" class="input-group-addon btn">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </label>
+        </div><br />-->
+
+
+
+        <!--From Date-->
+        <label for="date-picker-start">From Date:</label>
+        <div class="input-group" id='datepickerstart'>
+            <input id="date-picker-start" type="text" class="date-picker form-control" />
+            <label for="date-picker-start" class="input-group-addon btn">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </label>
+        </div><br />
+
+
+
+        <!--FromTime-->
+        <label for="TextFromTime">From Time :</label>
+        <div class="input-group clockpicker" id="FromTime" data-autoclose="true">
+            <input type="text" class="form-control" value="18:00">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+        <script type="text/javascript">
+            $('.clockpicker').clockpicker({
+                placement: 'bottom',
+                align: 'left'
+            });
+        </script>
+        <br />
+
+
+
+        <!--TO Date-->
+        <label for="date-picker-end">To Date:</label>
+        <div class="input-group" id='datepickerend'>
+                <input id="date-picker-end" type="text" class="date-picker form-control" />
+                <label for="date-picker-end" class="input-group-addon btn">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </label>
+        </div><br />
+
+
+
+
+        <!--To Time-->
+       <span class="glyphicon glyphicon-time"></span>
+        <label for="TextToTime">To Time :</label>
+        <div class="input-group clockpicker" id="ToTime" data-autoclose="true">
+            <input type="text" class="form-control" value="18:00">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+        <script type="text/javascript">
+            $('.clockpicker').clockpicker({
+                placement: 'bottom',
+                align: 'left'
+            });
+        </script>
+        <br /><br />
+        <div class="text-center">
+            <input class="ui-button-icon-primary" style="align-self:center" type="button" onclick="" value="submit" />
+        </div>
+
+    </div>
+    <!--<div class="input-group clockpicker">
+        <input type="text" class="form-control" value="18:00">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+        </span>
+    </div>
+    <script type="text/javascript">
+        $('.clockpicker').clockpicker({
+            placement: 'bottom',
+            align: 'left',
+            donetext: 'Done'
+        });
+    </script>-->
+</body>
