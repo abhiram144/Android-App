@@ -1,0 +1,17 @@
+var random = 1 * new Date();
+random = Math.floor(((random/1000)/60)/60);
+var version = 'v3.0'; 
+(function (w, d, s, f, o, a, m) {
+    w['SmartechObject'] = o;
+    w[o] = w[o] || function (a, c, n) {
+        (w[o].q = w[o].q || []).push(arguments);
+    }, w[o].l = 1 * new Date();
+    a = d.createElement(s),
+        m = d.getElementsByTagName(s)[0];
+    a.async = 1;
+    a.src = f;
+    m.parentNode.insertBefore(a, m);
+
+})(window, document, 'script', '//tw.netcore.co.in/smartech_v3.0.js?' + random, 'smartech');
+
+
